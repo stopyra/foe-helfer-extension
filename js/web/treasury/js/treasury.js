@@ -22,6 +22,7 @@ FoEproxy.addHandler('ClanService', 'getTreasuryLogs', (data) => {
 let Treasury = {
     Logs: [],
     LastNewLogs: undefined,
+    DateTimeExportFormat: "YYYY-MM-DDTHH:mmZZ",
 
     HandleNewLogs: (Logs) => {
         Treasury.LastNewLogs = Logs;
@@ -51,9 +52,9 @@ let Treasury = {
 
         let LogArray = Logs['responseData']['logs'];
         for (let i = 0; i < LogArray.length; i++) {
-            Treasury.Logs[Treasury.Logs.length] = LogArray[i];           
+            Treasury.Logs[Treasury.Logs.length] = LogArray[i];
         }
-        
+
         Treasury.CalcBody();
     },
 
@@ -97,7 +98,12 @@ let Treasury = {
             CurrentLine.push(GoodsData[GoodID]['name'].replace(/;/g, ''));
             CurrentLine.push(CurrentLog['amount']);
             CurrentLine.push(CurrentLog['action'].replace(/;/g, ''));
-            CurrentLine.push(CurrentLog['createdAt'].replace(/;/g, ''));
+            if (localStorage.getItem('FormattingDateInGuildTreasuryLogExport') === "true") {
+                let DateTime = helper.dateParser.parse(CurrentLog['createdAt'].replace(/;/g, ''));
+                CurrentLine.push(DateTime.format(this.DateTimeExportFormat));
+            } else {
+                CurrentLine.push(CurrentLog['createdAt'].replace(/;/g, ''));
+            }
 
             h.push(CurrentLine.join(';'));
         }
@@ -112,10 +118,12 @@ let Treasury = {
     *
     */
      ShowSettings: () => {
-		let autoOpen = Settings.GetSetting('ShowGuildTreasuryLogExport');
+        let autoOpen = Settings.GetSetting('ShowGuildTreasuryLogExport');
+        let formattingDate = localStorage.getItem('FormattingDateInGuildTreasuryLogExport') === "true";
 
         let h = [];
-        h.push(`<p><input id="autoStartTreasuryExport" name="autoStartTreasuryExport" value="1" type="checkbox" ${(autoOpen === true) ? ' checked="checked"' : ''} /> <label for="autoStartMarket">${i18n('Boxes.Settings.Autostart')}</label></p>`);
+        h.push(`<p><input id="autoStartTreasuryExport" name="autoStartTreasuryExport" value="1" type="checkbox" ${(autoOpen === true) ? ' checked="checked"' : ''} /> <label for="autoStartTreasuryExport">${i18n('Boxes.Settings.Autostart')}</label></p>`);
+        h.push(`<p><input id="formattingDateInTreasuryExport" name="formattingDateInTreasuryExport" value="0" type="checkbox" ${(formattingDate === true) ? ' checked="checked"' : ''} /> <label for="formattingDateInTreasuryExport">${i18n('Boxes.Treasury.Settings.FormattingDate')}</label></p>`);
         h.push(`<p><button onclick="Treasury.SaveSettings()" id="save-treasury-settings" class="btn btn-default" style="width:100%">${i18n('Boxes.Settings.Save')}</button></p>`);
 
         $('#treasurySettingsBox').html(h.join(''));
@@ -125,11 +133,15 @@ let Treasury = {
     *
     */
     SaveSettings: () => {
-        let value = false;
-		if ($("#autoStartMarket").is(':checked'))
-			value = true;
+        let autoOpen = false;
+        let formattingDate = false;
+        if ($("#autoStartTreasuryExport").is(':checked'))
+            autoOpen = true;
+        if ($("#formattingDateInTreasuryExport").is(':checked'))
+            formattingDate = true;
 
-		localStorage.setItem('ShowGuildTreasuryLogExport', value);
-		$(`#treasurySettingsBox`).remove();
+        localStorage.setItem('ShowGuildTreasuryLogExport', autoOpen);
+        localStorage.setItem('FormattingDateInGuildTreasuryLogExport', formattingDate);
+        $(`#treasurySettingsBox`).remove();
     },
 };

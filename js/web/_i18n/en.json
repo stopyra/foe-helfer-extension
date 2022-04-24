@@ -887,6 +887,7 @@
     "Boxes.Treasury.Resource": "Good",
     "Boxes.Treasury.RowNumber": "Rows processed",
     "Boxes.Treasury.Settings.Autostart": "Open window automatically",
+    "Boxes.Treasury.Settings.FormattingDate": "Format date",
     "Boxes.Treasury.Title": "Guild Treasury Export Log",
     "Boxes.Units.AlcaHarvest": "Your Alcatraz is ready to collect!",
     "Boxes.Units.Attack": "Attack%",
