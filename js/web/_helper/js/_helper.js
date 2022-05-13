@@ -153,6 +153,7 @@ helper.dateParser = {
 				friday    	: /Freitag um (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				saturday  	: /Samstag um (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				sunday   	: /Sonntag um (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) um (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 			},
 			en: {
 				today     : /today at (?<h>[012]?\d):(?<m>[0-5]?\d) (?<half>(a|p)m)/g,
@@ -164,6 +165,7 @@ helper.dateParser = {
 				friday    : /Friday at (?<h>[012]?\d):(?<m>[0-5]?\d) (?<half>(a|p)m)/g,
 				saturday  : /Saturday at (?<h>[012]?\d):(?<m>[0-5]?\d) (?<half>(a|p)m)/g,
 				sunday    : /Sunday at (?<h>[012]?\d):(?<m>[0-5]?\d) (?<half>(a|p)m)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) at (?<h>[012]?\d):(?<m>[0-5]?\d) (?<half>(a|p)m)/g,
 			},
 			pt: {
 				today     : /hoje às (?<h>[012]?\d):(?<m>[0-5]?\d)( horas)?/g,
@@ -175,6 +177,7 @@ helper.dateParser = {
 				friday    : /Sexta-feira pelas (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				saturday  : /Sábado pelas (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				sunday    : /Domingo pelas (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) pelas (?<h>[012]?\d):(?<m>[0-5]?\d)/g
 			},
 			br : {
 				today     : /hoje às (?<h>[012]?\d):(?<m>[0-5]?\d)( horas)?/g,
@@ -186,6 +189,7 @@ helper.dateParser = {
 				friday    : /Sexta-feira às (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				saturday  : /Sábado às (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				sunday    : /Domingo às (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) às (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 			},
 			fr: {
 				today     : /aujourd\'hui à (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
@@ -197,6 +201,7 @@ helper.dateParser = {
 				friday    : /Vendredi à (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				saturday  : /Samedi à (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				sunday    : /Dimanche à (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) à (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 			},
 			it: {
 				today     : /oggi alle (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
@@ -208,6 +213,7 @@ helper.dateParser = {
 				friday    : /Venerdì alle (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				saturday  : /Sabato alle (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				sunday    : /Domenica alle (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) alle (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 			},
 			pl: {
 				today     : /dzisiaj o (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
@@ -219,6 +225,7 @@ helper.dateParser = {
 				friday    : /Piątek o (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				saturday  : /Sobota o (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				sunday    : /Niedziela o (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) o (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 			},
 			ro: {
 				today     : /astăzi la ora (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
@@ -230,6 +237,7 @@ helper.dateParser = {
 				friday    : /Vineri la (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				saturday  : /Sâmbătă la (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				sunday    : /Duminică la (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) la (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 			},
 			nl: {
 				today     : /vandaag om (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
@@ -241,6 +249,7 @@ helper.dateParser = {
 				friday    : /Vrijdag om (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				saturday  : /Zaterdag om (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				sunday    : /Zondag om (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) om (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 			},
 			gr: {
 				today     : /σήμερα στις (?<h>[012]?\d):(?<m>[0-5]?\d) (?<half>(a|p)m)/g,
@@ -252,6 +261,7 @@ helper.dateParser = {
 				friday    : /Παρασκευή στις (?<h>[012]?\d):(?<m>[0-5]?\d) (?<half>(a|p)m)/g,
 				saturday  : /Σάββατο στις (?<h>[012]?\d):(?<m>[0-5]?\d) (?<half>(a|p)m)/g,
 				sunday    : /Κυριακή στις (?<h>[012]?\d):(?<m>[0-5]?\d) (?<half>(a|p)m)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) στις (?<h>[012]?\d):(?<m>[0-5]?\d) (?<half>(a|p)m)/g,
 			},
 			hu: {
 				today     : /ma (?<h>[012]?\d):(?<m>[0-5]?\d) órakor/g,
@@ -263,6 +273,7 @@ helper.dateParser = {
 				friday    : /Péntek, ekkor: (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				saturday  : /Szombat, ekkor: (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				sunday    : /Vasárnap, ekkor: (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}), ekkor: (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 			},
 			ru: {
 				today     : /сегодня, в (?<h>[012]?\d):(?<m>[0-5]?\d) /g,
@@ -274,6 +285,7 @@ helper.dateParser = {
 				friday    : /Пятница в (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				saturday  : /Суббота в (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				sunday    : /Воскресенье в (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) в (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 			},
 			tr: {
 				today: /bugün (?<h>[012]?\d):(?<m>[0-5]?\d) itibariyle/g,
@@ -285,6 +297,7 @@ helper.dateParser = {
 				friday: /Cuma, (?<h>[012]?\d):(?<m>[0-5]?\d) saatinde/g,
 				saturday: /Cumartesi, (?<h>[012]?\d):(?<m>[0-5]?\d) saatinde/g,
 				sunday: /Pazar, (?<h>[012]?\d):(?<m>[0-5]?\d) saatinde/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}), (?<h>[012]?\d):(?<m>[0-5]?\d) saatinde/g,
 			},
 			es: {
 				today: /hoy a la\/s (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
@@ -296,6 +309,7 @@ helper.dateParser = {
 				friday: /Viernes a las (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				saturday: /Sábado a las (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				sunday: /Domingo a las (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) a las (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 			},
 			cz: {
 				today: /dnes v (?<h>[012]?\d):(?<m>[0-5]?\d) hod/g, //Old Format: /dnes v\xC2\xA0(?<h>[012]?\d):(?<m>[0-5]?\d)\xC2\xA0hod/g
@@ -307,6 +321,7 @@ helper.dateParser = {
 				friday: /Pátek v (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				saturday: /Sobota v (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				sunday: /Neděle v (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) v (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 			},
 			sk: {
 				today: /dnes o (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
@@ -318,6 +333,7 @@ helper.dateParser = {
 				friday: /Piatok o (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				saturday: /Sobota o (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				sunday: /Nedeľa o (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) o (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 			},
 			se: {
 				today: /idag kl (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
@@ -329,6 +345,7 @@ helper.dateParser = {
 				friday: /Fredag kl (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				saturday: /Lördag kl (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				sunday: /Söndag kl (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) kl (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 			},
 			th: {
 				today: /วันนี้ เวลา (?<h>[012]?\d):(?<m>[0-5]?\d) น./g,
@@ -340,6 +357,7 @@ helper.dateParser = {
 				friday: /ศุกร์ ตอน (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				saturday: /เสาร์ ตอน (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 				sunday: /อาทิตย์ ตอน (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) ตอน (?<h>[012]?\d):(?<m>[0-5]?\d)/g,
 			},
 			dk: {
 				today: /i dag kl\. (?<h>[012]?\d)\.(?<m>[0-5]?\d)/g,
@@ -351,6 +369,7 @@ helper.dateParser = {
 				friday: /Fredag klokken (?<h>[012]?\d)\.(?<m>[0-5]?\d)/g,
 				saturday: /Lørdag klokken (?<h>[012]?\d)\.(?<m>[0-5]?\d)/g,
 				sunday: /Søndag klokken (?<h>[012]?\d)\.(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) klokken (?<h>[012]?\d)\.(?<m>[0-5]?\d)/g,
 			},
 			fi: {
 				today: /tänään klo (?<h>[012]?\d).(?<m>[0-5]?\d)/g,
@@ -362,6 +381,7 @@ helper.dateParser = {
 				friday: /Perjantai kello (?<h>[012]?\d).(?<m>[0-5]?\d)/g,
 				saturday: /Lauantai kello (?<h>[012]?\d).(?<m>[0-5]?\d)/g,
 				sunday: /Sunnuntai kello (?<h>[012]?\d).(?<m>[0-5]?\d)/g,
+				other		: /(?<D>\d{2}).(?<M>\d{2}).(?<Y>\d{4}) kello (?<h>[012]?\d).(?<m>[0-5]?\d)/g
 			},
 		};
 
@@ -398,6 +418,7 @@ helper.dateParser = {
 
 		// Fallback @Todo: Was könnte dann passieren?
 		if(!matcher){
+			moment.locale(OldLocale);
 			return undefined;
 		}
 
@@ -443,6 +464,14 @@ helper.dateParser = {
 						refDate = moment().subtract(1, 'day');
 						break;
 
+					case 'other':
+						refDate = moment();
+						refDate.set({
+							year:   parseInt(match['groups']['Y']),
+							month:  parseInt(match['groups']['M']) - 1,
+							date:   parseInt(match['groups']['D'])
+						});
+						break;
 					default:
 						refDate = moment().day(capitalize(day));
 						if (refDate.isAfter(MainParser.getCurrentDate())) refDate = refDate.subtract(7 * 86400000); //Date is in the future => subtract 1 week
@@ -455,11 +484,11 @@ helper.dateParser = {
 				})
 
 				moment.locale(OldLocale);
-
 				return moment( refDate, moment.defaultFormat);
 			}
 		}
 
+		moment.locale(OldLocale);
 		return undefined;
 	}
 };
